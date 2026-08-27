@@ -1,0 +1,19 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}"],
+  theme: {
+    extend: {
+      colors: {
+        background: "var(--dark-0)", surface: "var(--dark-2)", paper: "var(--paper)",
+        primary: "var(--text)", secondary: "var(--text-2)", muted: "var(--text-3)",
+        accent: "var(--cyan)", border: "var(--line-dark)"
+      },
+      fontFamily: { mono: ["Courier Prime", "Courier New", "monospace"] }
+    }
+  },
+  plugins: []
+};
+
+export default config;
+

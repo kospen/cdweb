@@ -1,0 +1,393 @@
+<title>Homepage Section Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Archivo:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#070b0e; --panel:#0c1317; --panel2:#101a1f; --rule:#1d282f;
+  --ink:#f2f0ea; --ink2:#93a0a6; --ink3:#606c72;
+  --cyan:#56d7e5; --cyan-deep:#2b8f9b; --rust:#cf7a55;
+  --mono:"Courier Prime",ui-monospace,"Courier New",monospace;
+  --sans:"Archivo",system-ui,sans-serif;
+  --shell:1080px;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16.5px; line-height:1.65; -webkit-font-smoothing:antialiased}
+.shell{max-width:var(--shell); margin:0 auto; padding:0 28px}
+.wide{max-width:1240px; margin:0 auto; padding:0 28px}
+h1{font-family:var(--mono); font-weight:400; font-size:clamp(1.95rem,4.4vw,3.1rem);
+  line-height:1.06; letter-spacing:-.02em; margin:0; text-wrap:balance}
+h2{font-family:var(--mono); font-weight:400; font-size:clamp(1.45rem,2.6vw,2rem);
+  line-height:1.15; letter-spacing:-.015em; margin:0; text-wrap:balance}
+h3{font-family:var(--mono); font-weight:700; font-size:1rem; letter-spacing:.02em; margin:0}
+p{margin:0; max-width:66ch}
+.kicker{font-family:var(--mono); font-size:.72rem; font-weight:700; letter-spacing:.19em;
+  text-transform:uppercase; color:var(--cyan); margin:0}
+.kicker.mute{color:var(--ink3)}
+.lede{font-size:1.1rem; color:var(--ink2); max-width:62ch}
+.small{font-size:.9rem; color:var(--ink2)}
+.tiny{font-size:.83rem; color:var(--ink3)}
+code{font-family:var(--mono); font-size:.9em; color:var(--cyan);
+  background:rgba(86,215,229,.07); padding:.1em .38em; border-radius:2px}
+header.top{padding:74px 0 30px; border-bottom:1px solid var(--rule)}
+header.top .stack{display:flex; flex-direction:column; gap:20px}
+section{padding:54px 0}
+section+section{border-top:1px solid var(--rule)}
+.head{display:flex; flex-direction:column; gap:13px; margin-bottom:30px}
+
+/* ---- the killer table ---- */
+.tablewrap{overflow-x:auto; border:1px solid var(--rule)}
+table{border-collapse:collapse; width:100%; min-width:560px; font-size:.92rem}
+th,td{text-align:left; padding:12px 15px; border-bottom:1px solid var(--rule); vertical-align:top}
+thead th{font-family:var(--mono); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink3); background:var(--panel2); font-weight:400}
+tbody tr:last-child td{border-bottom:0}
+td.route{font-family:var(--mono); color:var(--ink2)}
+td.num{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
+.bad{color:var(--rust)} .ok{color:var(--cyan)}
+/* a bar inside the cell — magnitude, read at a glance */
+.meter{display:block; height:4px; background:var(--rule); margin-top:6px; position:relative}
+.meter i{position:absolute; inset:0 auto 0 0; background:var(--rust); display:block}
+.meter.good i{background:var(--cyan)}
+
+/* ---- section map ---- */
+.maplab{display:flex; justify-content:space-between; gap:12px; margin-bottom:9px}
+.map{display:flex; width:100%; height:64px; border:1px solid var(--rule); background:var(--panel);
+  overflow:hidden}
+.map div{position:relative; border-right:1px solid var(--rule); min-width:0}
+.map div:last-child{border-right:0}
+.seg-keep{background:rgba(86,215,229,.82)}
+.seg-merge{background:rgba(86,215,229,.13); box-shadow:inset 0 0 0 1px rgba(86,215,229,.7)}
+.seg-cut{background:repeating-linear-gradient(135deg,rgba(207,122,85,.20) 0 5px,transparent 5px 10px);
+  box-shadow:inset 0 0 0 1px rgba(207,122,85,.5)}
+.map span{position:absolute; left:6px; top:6px; font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.06em; color:#06232a; text-transform:uppercase; line-height:1.25}
+.seg-merge span{color:#8fd8e2} .seg-cut span{color:#e6b39a}
+.map em{position:absolute; left:6px; bottom:5px; font-family:var(--mono); font-size:.62rem;
+  font-style:normal; color:#06232a; font-variant-numeric:tabular-nums}
+.seg-merge em{color:#9fd4dc} .seg-cut em{color:#cf9c85}
+.legend{display:flex; gap:22px; flex-wrap:wrap; margin-top:14px; font-family:var(--mono);
+  font-size:.73rem; letter-spacing:.09em; text-transform:uppercase; color:var(--ink3)}
+.legend b{display:inline-block; width:22px; height:10px; margin-right:8px; vertical-align:-1px}
+.legend .k{background:rgba(86,215,229,.82)}
+.legend .m{background:rgba(86,215,229,.13); box-shadow:inset 0 0 0 1px rgba(86,215,229,.7)}
+.legend .c{background:repeating-linear-gradient(135deg,rgba(207,122,85,.20) 0 5px,transparent 5px 10px);
+  box-shadow:inset 0 0 0 1px rgba(207,122,85,.5)}
+
+/* ---- verdict list ---- */
+.verdicts{display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+.v{background:var(--panel); padding:19px 21px; display:grid; grid-template-columns:150px 1fr;
+  gap:20px; align-items:start}
+.v .tag{font-family:var(--mono); font-size:.71rem; letter-spacing:.13em; text-transform:uppercase;
+  padding-top:3px}
+.v .tag i{display:block; font-style:normal; margin-top:5px; font-size:.68rem; color:var(--ink3)}
+.tag-keep{color:var(--cyan)} .tag-merge{color:#9fd4dc} .tag-cut{color:var(--rust)}
+.v h3{margin-bottom:7px}
+.v p{font-size:.93rem; color:var(--ink2); max-width:none}
+.v p+p{margin-top:8px}
+@media(max-width:640px){.v{grid-template-columns:1fr; gap:9px}}
+
+.cols{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule);
+  border:1px solid var(--rule)}
+.cols>div{background:var(--panel); padding:22px}
+.cols h3{margin-bottom:12px}
+.cols ol{margin:0; padding-left:1.15rem; font-family:var(--mono); font-size:.86rem;
+  color:var(--ink2); line-height:2}
+.cols ol.gone li{color:var(--ink3); text-decoration:line-through}
+@media(max-width:640px){.cols{grid-template-columns:1fr}}
+
+.callout{border-left:2px solid var(--cyan); padding:2px 0 2px 20px; margin:26px 0}
+.callout p{color:var(--ink)}
+footer{padding:36px 0 66px; color:var(--ink3); font-size:.85rem}
+</style>
+
+<header class="top">
+  <div class="shell stack">
+    <p class="kicker">Creative Destruction · структура на началната страница</p>
+    <h1>Дублирането не е там, където изглежда.</h1>
+    <p class="lede">Секция и пункт от менюто не се дублират — това е нормалната подредба на всеки сайт.
+      Истинското повторение е друго: <b>вътрешните страници повтарят началната почти дума по дума.</b>
+      Мерено, /news/ добавя една нова дума над това, което вече е на началната.</p>
+  </div>
+</header>
+
+<section>
+  <div class="shell">
+    <div class="head">
+      <p class="kicker mute">Измерено</p>
+      <h2>Колко ново казва всяка вътрешна страница</h2>
+      <p class="small" style="max-width:64ch">Взех текста на всяка страница от билда и извадих всички думи,
+        които вече ги има на началната. Остатъкът е това, заради което страницата съществува.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Маршрут</th><th>Думи</th><th>Нови спрямо началната</th><th>Дял ново</th></tr></thead>
+        <tbody>
+          <tr><td class="route">/news/</td><td class="num">164</td><td class="num bad">1</td>
+            <td class="num bad">1.7 %<span class="meter"><i style="width:7%"></i></span></td></tr>
+          <tr><td class="route">/about/</td><td class="num">176</td><td class="num bad">1</td>
+            <td class="num bad">1.5 %<span class="meter"><i style="width:6%"></i></span></td></tr>
+          <tr><td class="route">/projects/</td><td class="num">163</td><td class="num bad">2</td>
+            <td class="num bad">3.2 %<span class="meter"><i style="width:14%"></i></span></td></tr>
+          <tr><td class="route">/research/</td><td class="num">172</td><td class="num bad">3</td>
+            <td class="num bad">4.3 %<span class="meter"><i style="width:19%"></i></span></td></tr>
+          <tr><td class="route">/capabilities/</td><td class="num">232</td><td class="num">6</td>
+            <td class="num">6.2 %<span class="meter"><i style="width:27%"></i></span></td></tr>
+          <tr><td class="route">/products/</td><td class="num">203</td><td class="num">9</td>
+            <td class="num">10.7 %<span class="meter"><i style="width:47%"></i></span></td></tr>
+          <tr><td class="route">/contact/</td><td class="num">171</td><td class="num ok">14</td>
+            <td class="num ok">23.0 %<span class="meter good"><i style="width:100%"></i></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <p>Единствената вътрешна страница, която носи истинско съдържание, е <code>/contact/</code> —
+        четирите типа запитване, които на началната изобщо не се показват. Всички останали са ехо.</p>
+    </div>
+    <p class="tiny">Думите „active“ и „fields“, които се броят като нови на няколко страници, идват от
+      декоративната ос <code>CD — PRODUCTS — ACTIVE</code> и от етикета „VERIFIED FIELDS ONLY“. Тоест
+      реалната добавена стойност на /news/, /about/, /projects/ и /research/ е нула.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="head">
+      <p class="kicker mute">Втората находка</p>
+      <h2>Седем секции с една и съща форма</h2>
+    </div>
+    <p>Началната страница не изглежда дълга защото е дълга, а защото <b>повтаря един и същи ритъм</b>:
+      надпис, голямо твърдение, номериран списък. Един след друг, седем пъти.</p>
+    <div class="tablewrap" style="margin-top:24px">
+      <table>
+        <thead><tr><th>Секция</th><th>Форма</th><th>Номерирани елемента</th></tr></thead>
+        <tbody>
+          <tr><td>Operating model / 02</td><td class="route">процес в стъпки</td><td class="num">3</td></tr>
+          <tr><td>Products &amp; initiatives / 03</td><td class="route">номериран индекс</td><td class="num">2</td></tr>
+          <tr><td>Selected project environments / 04</td><td class="route">номериран индекс</td><td class="num">1</td></tr>
+          <tr><td>Research &amp; development / 05</td><td class="route">процес в стъпки</td><td class="num">4</td></tr>
+          <tr><td>Capability system / 06</td><td class="route">номериран индекс</td><td class="num">8</td></tr>
+          <tr><td>Latest news / 07</td><td class="route">номериран индекс</td><td class="num">2</td></tr>
+          <tr><td>About / 08</td><td class="route">номериран индекс</td><td class="num">4</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:22px"><b>22 номерирани елемента</b> в седем поредни секции. И два от тях са
+      процеси в стъпки — <code>RETHINK → REPLACE → REIMAGINE</code> и
+      <code>Investigate → Prototype → Validate → Transfer</code>. Две различни „нашата методология в N стъпки“
+      на една страница се обезсилват взаимно.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wide">
+    <div class="head" style="max-width:var(--shell); margin-left:auto; margin-right:auto; width:100%">
+      <p class="kicker mute">Картата</p>
+      <h2>8 708 px, разпределени</h2>
+      <p class="small" style="max-width:64ch">Ширината на всеки блок е реалната му височина на екран
+        при 1440&nbsp;px. Плътното е това, което остава; контурното се слива; щрихованото си отива.</p>
+    </div>
+
+    <div class="maplab"><span class="tiny">СЕГА · 10 секции</span><span class="tiny">8 708 px</span></div>
+    <div class="map" role="img" aria-label="Сегашната начална страница: Hero 9.3%, Operating idea 5.8%, Operating model 13.7%, Products 11.5%, Projects 9.3%, R&D 10.6%, Capabilities 12.1%, News 11.9%, About 9.6%, Contact 6.1%.">
+      <div class="seg-keep" style="width:9.3%"><span>Hero</span><em>9.3%</em></div>
+      <div class="seg-keep" style="width:5.8%"><span>Идея 01</span><em>5.8%</em></div>
+      <div class="seg-keep" style="width:13.7%"><span>Модел 02</span><em>13.7%</em></div>
+      <div class="seg-merge" style="width:11.5%"><span>Products 03</span><em>11.5%</em></div>
+      <div class="seg-cut" style="width:9.3%"><span>Projects 04</span><em>9.3%</em></div>
+      <div class="seg-merge" style="width:10.6%"><span>R&amp;D 05</span><em>10.6%</em></div>
+      <div class="seg-keep" style="width:12.1%"><span>Capab. 06</span><em>12.1%</em></div>
+      <div class="seg-cut" style="width:11.9%"><span>News 07</span><em>11.9%</em></div>
+      <div class="seg-merge" style="width:9.6%"><span>About 08</span><em>9.6%</em></div>
+      <div class="seg-keep" style="width:6.1%"><span>Contact</span><em>6.1%</em></div>
+    </div>
+    <div class="legend">
+      <span><b class="k"></b>остава</span>
+      <span><b class="m"></b>слива се или се свива</span>
+      <span><b class="c"></b>маха се от началната</span>
+    </div>
+
+    <div class="maplab" style="margin-top:40px"><span class="tiny">ПРЕДЛОЖЕНИЕ · 7 секции</span><span class="tiny">≈ 5 800 px · −33 %</span></div>
+    <div class="map" role="img" aria-label="Предложената начална страница: Hero, Идея, Операционен модел, Работа, Способности с R&D лента, About, Contact.">
+      <div class="seg-keep" style="width:14.0%"><span>Hero</span><em>810</em></div>
+      <div class="seg-keep" style="width:8.7%"><span>Идея</span><em>508</em></div>
+      <div class="seg-keep" style="width:20.5%"><span>Операционен модел</span><em>1191</em></div>
+      <div class="seg-keep" style="width:15.5%"><span>Работа</span><em>~900</em></div>
+      <div class="seg-keep" style="width:19.8%"><span>Способности + R&amp;D</span><em>~1150</em></div>
+      <div class="seg-keep" style="width:10.6%"><span>About</span><em>~620</em></div>
+      <div class="seg-keep" style="width:11.0%"><span>Contact</span><em>~640</em></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="head">
+      <p class="kicker mute">Решение по секции</p>
+      <h2>Какво остава и защо</h2>
+    </div>
+    <div class="verdicts">
+
+      <div class="v"><span class="tag tag-keep">Остава<i>непроменена</i></span><div>
+        <h3>Hero · Operating idea / 01</h3>
+        <p>Единственото място, където се обяснява откъде идва името на компанията. 54 думи, 508&nbsp;px —
+          най-икономичната секция на страницата. Не я пипай.</p></div></div>
+
+      <div class="v"><span class="tag tag-keep">Остава<i>ядрото</i></span><div>
+        <h3>Operating model / 02 — RETHINK / REPLACE / REIMAGINE</h3>
+        <p>Най-силното собствено съдържание на сайта и най-голямата секция (13.7&nbsp;%). Това е
+          единственото, което конкурент не може да копира с пренаписване. Заслужава мястото си
+          и дори повече тежест.</p></div></div>
+
+      <div class="v"><span class="tag tag-merge">Слива се<br>с Projects</span><div>
+        <h3>Products &amp; initiatives / 03</h3>
+        <p>Два записа: PDGA и AI Governance. Проблемът не е секцията, а текстът в нея — описанието на
+          PDGA гласи „специално място за PDGA инициативата в екосистемата на Creative Destruction“,
+          което е кръгово: обяснява къде стои PDGA в сайта, а не какво е.</p>
+        <p>Финалното изречение — „content model-ът поддържа допълнителни AI-powered SaaS продукти
+          без промяна на интерфейсната архитектура“ — е вътрешна бележка към разработчик, стигнала
+          до публична страница. Маха се безусловно.</p></div></div>
+
+      <div class="v"><span class="tag tag-cut">Маха се<i>от началната</i></span><div>
+        <h3>Selected project environments / 04</h3>
+        <p>814&nbsp;px и 9.3&nbsp;% от страницата за <b>един запис</b>, който е същият PDGA от
+          предната секция, с почти същия текст. Посетителят вижда PDGA два пъти подред и не може да
+          разбере продукт ли е или проект — а и сайтът не е решил.</p>
+        <p>Записът при това казва „информацията за програмата и консорциума ще бъде публикувана след
+          верификация“. Цяла секция, чието съдържание е „това ще го има по-късно“, вреди повече,
+          отколкото липсата ѝ.</p>
+        <p><b>Действие:</b> един раздел „Работа“ вместо Products + Projects. PDGA веднъж, с изречение,
+          което казва какво е. Отделен раздел Projects се връща, когато има верифициран проект с име
+          на програма и партньори.</p></div></div>
+
+      <div class="v"><span class="tag tag-merge">Свива се<i>в лента</i></span><div>
+        <h3>Research &amp; development / 05</h3>
+        <p>Investigate → Prototype → Validate → Transfer е най-ясният съдържателен модел след рамката.
+          Но е <b>вторият процес в стъпки</b> на същата страница, а четирите клетки с вертикални
+          разделители са и най-близкото до „generic feature cards“, което брифът забранява.</p>
+        <p><b>Действие:</b> стъпките стават компактна хоризонтална лента в началото на Capabilities —
+          „така се движи работата“ — а не самостоятелна секция с 924&nbsp;px. Пълните описания остават
+          на <code>/research/</code>.</p></div></div>
+
+      <div class="v"><span class="tag tag-keep">Остава<i>+ поема R&amp;D</i></span><div>
+        <h3>Capability system / 06</h3>
+        <p>Осемте способности са легитимният отговор на „какво правите“. Остава, но всяка казва
+          <em>какво</em>, не <em>как изглежда работата</em> — едно изречение за типичен ангажимент на
+          всяка би превърнало списъка от описателен в решаващ.</p>
+        <p>Дребно: сигналите (<code>MODEL → SYSTEM</code>) са на 9.92&nbsp;px — най-дребният текст на
+          сайта. Минимум 11&nbsp;px или отпадат.</p></div></div>
+
+      <div class="v"><span class="tag tag-cut">Маха се<i>засега</i></span><div>
+        <h3>Latest news / 07</h3>
+        <p>1 036&nbsp;px, 11.9&nbsp;% от началната страница, за две статии с <b>една и съща дата</b>,
+          чиито теми са… информационната архитектура на самия сайт. „Creative Destruction вече представя
+          продукти, проекти и инженеринг като една свързана технологична система.“</p>
+        <p>Раздел „Новини“, в който новините са за подредбата на сайта, съобщава на посетителя, че не се
+          случва нищо. Празен раздел е по-добър от този.</p>
+        <p><b>Действие:</b> маха се от началната. <code>/news/</code> остава като маршрут, за да расте.
+          Връща се на началната като компактна лента от три реда (дата + заглавие), когато има поне
+          три истински записа — пускане на продукт, резултат, партньорство или събитие.</p></div></div>
+
+      <div class="v"><span class="tag tag-merge">Свива се</span><div>
+        <h3>About / 08</h3>
+        <p>Research-led, Product-oriented, Collaborative, European. Четири прилагателни, които всяка
+          технологична компания може да заяви за себе си. Няма хора, няма година, няма локация,
+          няма нито едно проверимо твърдение.</p>
+        <p><b>Действие:</b> принципите се свиват до компактен блок, а мястото отива за трите факта,
+          които не изискват ничие одобрение: <b>къде е компанията, от кога, кой я води.</b> Това е
+          най-евтиното подобрение на доверието в целия сайт.</p></div></div>
+
+      <div class="v"><span class="tag tag-keep">Остава<i>+ се поправя</i></span><div>
+        <h3>Contact / 09</h3>
+        <p>Тук има истински дефект: от началната страница <b>няма нито една връзка към</b>
+          <code>/contact/</code>. Компактният вариант показва само един <code>mailto:</code>, така че
+          четирите типа запитване — продукт, изследване, партньорство, технология — не се достигат
+          отникъде. Единственият изход от 8 708&nbsp;px страница е имейл линк без тема.</p>
+        <p><b>Действие:</b> четирите маршрута идват на началната, плюс копиране на адреса —
+          <code>mailto:</code> не работи за човек с уеб поща.</p></div></div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="head">
+      <p class="kicker mute">Прекият отговор</p>
+      <h2>А менюто?</h2>
+    </div>
+    <p>Пунктът в менюто и секцията на началната не си пречат — почти всеки сайт има и двете, и това
+      е очакваната подредба. Проблемът е обратният: <b>дали страницата зад пункта заслужава да
+      съществува.</b></p>
+    <div class="callout">
+      <p><code>/news/</code> добавя 1 нова дума. <code>/about/</code> добавя 1. <code>/projects/</code>
+        добавя 2. Тези страници не са дубликат на менюто — те са дубликат на началната.</p>
+    </div>
+    <p>Затова предложението е кръстосано: <b>секцията пада от началната, страницата остава</b> —
+      и точно това превръща пункта в менюто в единствения път до съдържанието, тоест му дава смисъл.
+      За News работи веднага. За Projects — не: страница с един запис, който казва „предстои“, не бива
+      да е в менюто. Влиза в „Работа“ заедно с Products и се връща като отделен пункт, когато има
+      какво да покаже.</p>
+    <p style="margin-top:18px"><b>Меню след промяната:</b> Work · R&amp;D · Capabilities · News · About ·
+      Contact. Шест вместо седем, и всеки води до нещо, което го няма другаде.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="head">
+      <p class="kicker mute">Резултат</p>
+      <h2>Преди и след</h2>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Сега · 10</h3>
+        <ol>
+          <li>Hero</li><li>Operating idea / 01</li><li>Operating model / 02</li>
+          <li>Products &amp; initiatives / 03</li><li>Selected project environments / 04</li>
+          <li>Research &amp; development / 05</li><li>Capability system / 06</li>
+          <li>Latest news / 07</li><li>About / 08</li><li>Contact / 09</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Предложение · 7</h3>
+        <ol>
+          <li>Hero</li><li>Операционна идея</li><li>Операционен модел</li>
+          <li>Работа <span class="tiny">(Products + Projects)</span></li>
+          <li>Способности <span class="tiny">(+ R&amp;D лента)</span></li>
+          <li>About <span class="tiny">(с факти)</span></li>
+          <li>Contact <span class="tiny">(с маршрутите)</span></li>
+        </ol>
+      </div>
+    </div>
+    <p class="small" style="margin-top:22px">От 8 708 на около 5 800&nbsp;px — с една трета по-къса,
+      без да се маха нито едно истинско съдържание. Всичко, което пада, е или повторение,
+      или обещание за бъдещо съдържание.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="head">
+      <p class="kicker mute">Честно казано</p>
+      <h2>От какво зависи всичко това</h2>
+    </div>
+    <p>Пренареждането на секции е козметика върху истинския въпрос. Сайтът има структура за компания
+      с портфолио, а съдържание за компания, която тепърва започва. Затова секциите се повтарят —
+      няма достатъчно различно, с което да се напълнят.</p>
+    <p style="margin-top:14px">Три неща биха свършили повече работа от всяка структурна промяна в този
+      документ: <b>едно изречение какво е PDGA</b>, <b>един верифициран проект с име на програма</b>,
+      и <b>три реда за това кой стои зад компанията</b>. С тях половината от разрезите тук стават
+      ненужни — секциите ще имат какво да кажат.</p>
+    <p style="margin-top:14px" class="small">Списъкът с липсващата информация вече съществува в
+      <code>project-analysis/CONTENT_TODO.md</code>. Той е по-важен от този документ.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <p class="small">Височините са измерени в production билда при 1440&nbsp;px. Сравнението на думите
+      е направено върху експортирания HTML на всеки маршрут. 26.08.2026.</p>
+  </div>
+</footer>
