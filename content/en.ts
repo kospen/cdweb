@@ -107,10 +107,11 @@ export const en: LocaleContent = {
     title: "A research-led technology\ncompany built for collaboration.",
     intro: "CREATIVE DESTRUCTION develops digital products and systems through research, engineering and innovation work across company, project and institutional environments.",
     facts: [
-      { label: "Registered name", value: "CREATIVE DESTRUCTION VCC" },
+      { label: "Registered name", value: "\"CREATIVE DESTRUCTION\"DPK" },
+      { label: "Company Registration Number (UIC)", value: "208581552" },
+      { label: "EU Participant Identification Code (PIC)", value: "867994219" },
       { label: "Based in", value: "Bulgaria" },
-      { label: "Operating context", value: "European research and technology" },
-      { label: "Active systems", value: "PDGA · Klardex" }
+      { label: "Phone", value: "+359 898 686 808", href: "tel:+359898686808" }
     ],
     principles: [
       { id: "01", name: "Research-led", description: "Technical work begins with a clear problem, evidence and an inspectable hypothesis." },
@@ -123,7 +124,7 @@ export const en: LocaleContent = {
     eyebrow: "Contact / 07",
     title: "Start with the technology question.",
     intro: "Contact CREATIVE DESTRUCTION about products, research collaboration, project partnerships or technology development.",
-    emailLabel: "Direct contact", email: "",
+    emailLabel: "Direct contact", email: "contact@creative-destruction.eu", phone: "+359 898 686 808",
     routes: [
       { id: "01", name: "Product enquiry", description: "Discuss an AI, SaaS or digital product direction.", subject: "Product enquiry" },
       { id: "02", name: "Research collaboration", description: "Explore applied research, experimentation or validation work.", subject: "Research collaboration" },
@@ -132,5 +133,15 @@ export const en: LocaleContent = {
     ],
     note: ""
   },
-  footer: { statement: "Research, AI and software engineering shaped into deployable digital products and systems.", contactLabel: "Direct contact", rights: "Creative Destruction. All rights reserved." }
+  footer: { statement: "Research, AI and software engineering shaped into deployable digital products and systems.", contactLabel: "Direct contact", rights: "Creative Destruction. All rights reserved." },
+  // Fill in from the Commercial Register record. Empty strings are hidden on the site.
+  legal: {
+    label: "Company details",
+    entityName: "\"CREATIVE DESTRUCTION\"DPK",
+    uic: "208581552",
+    // Not VAT-registered (Commercial Register, 13.10.2026). Add "BG…" here if that changes.
+    vatNumber: "",
+    pic: "867994219",
+    registeredAddress: "7 Odrinska Epopeya St., entr. A, fl. 5, apt. 33, 6000 Stara Zagora, Bulgaria"
+  }
 };

@@ -88,7 +88,7 @@ export function AboutSection({ locale, copy, full = false, intro }: { locale: Lo
         <div>
           <dl className="fact-list">
             {copy.about.facts.map((fact) => (
-              <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>
+              <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.href ? <a href={fact.href}>{fact.value}</a> : fact.value}</dd></div>
             ))}
           </dl>
           <div className="principle-list">

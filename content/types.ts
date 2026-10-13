@@ -78,7 +78,7 @@ export interface LocaleContent {
     eyebrow: string;
     title: string;
     intro: string;
-    facts: Array<{ label: string; value: string }>;
+    facts: Array<{ label: string; value: string; href?: string }>;
     principles: Array<{ id: string; name: string; description: string }>;
   };
   contact: {
@@ -87,8 +87,12 @@ export interface LocaleContent {
     intro: string;
     emailLabel: string;
     email: string;
+    /** Display form, e.g. "+359 898 686 808". The tel: link strips spaces. Empty = hidden. */
+    phone: string;
     routes: Array<{ id: string; name: string; description: string; subject: string }>;
     note: string;
   };
   footer: { statement: string; contactLabel: string; rights: string };
+  /** Company registration details shown in the footer. Empty values are not rendered. */
+  legal: { label: string; entityName: string; uic: string; vatNumber: string; pic: string; registeredAddress: string };
 }

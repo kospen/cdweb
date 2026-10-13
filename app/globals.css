@@ -233,6 +233,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-contact { display: grid; align-content: start; justify-items: start; gap: .9rem; }
 .footer-contact > a { font-size: .78rem; }
 .footer-language { margin-top: 1rem; color: var(--cyan); }
+.footer-legal { display: grid; gap: .8rem; margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line-dark); }
+.footer-legal dl { display: flex; flex-wrap: wrap; gap: .6rem 2.5rem; margin: 0; font-size: .7rem; }
+.footer-legal dt { color: var(--text-3); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; }
+.footer-legal dd { margin: .2rem 0 0; color: var(--text-2); overflow-wrap: anywhere; }
+.footer-legal dd a { white-space: nowrap; }
+.footer-legal dd a:hover { color: var(--cyan); }
+.footer-legal + .footer-base { margin-top: 1.5rem; }
 .footer-base { display: flex; justify-content: space-between; gap: 1rem; margin-top: 4rem; padding-top: 1.2rem; border-top: 1px solid var(--line-dark); color: var(--text-3); font-size: .62rem; }
 .locale-gateway { display: grid; min-height: 100svh; padding: 2rem; background: radial-gradient(circle at 70% 45%, rgba(57,126,163,.18), transparent 35%), var(--dark-0); place-content: center; }
 .locale-gateway h1 { max-width: 12ch; margin-top: 1.2rem; font-size: clamp(3rem, 8vw, 7rem); font-weight: 400; line-height: .95; }
@@ -860,13 +867,16 @@ main > section:not(.reference-hero) { content-visibility: visible; }
 
 /* ---- About: facts strip on the dark surface ---- */
 .fact-list {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  /* flex-wrap so every row fills edge to edge, whatever the item count */
+  display: flex; flex-wrap: wrap;
   gap: 1px; margin-bottom: 3rem; background: var(--line-dark);
   border: 1px solid var(--line-dark);
 }
-.fact-list > div { display: flex; flex-direction: column; gap: .5rem; padding: 1.1rem 1.2rem; background: var(--dark-1); }
+.fact-list > div { flex: 1 1 11rem; display: flex; flex-direction: column; gap: .5rem; padding: 1.1rem 1.2rem; background: var(--dark-1); }
 .fact-list dt { color: var(--text-3); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
 .fact-list dd { margin: 0; color: var(--text); font-size: .98rem; }
+.fact-list dd a { color: var(--cyan); white-space: nowrap; }
+.fact-list dd a:hover { color: var(--text); }
 
 /* ---- Contact: the four routes and a readable address ---- */
 .contact-address {
