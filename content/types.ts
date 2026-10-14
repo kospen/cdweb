@@ -20,14 +20,30 @@ export interface CapabilityRecord {
   signal: string;
 }
 
+/**
+ * Rich article body. Text supports two inline marks:
+ * **bold** and [label](href) — internal hrefs start with "/".
+ */
+export type ArticleBlock =
+  | { type: "p"; text: string }
+  | { type: "h2"; text: string }
+  | { type: "ul"; items: string[] };
+
 export interface NewsRecord {
   slug: string;
+  /** Publication date of the article on this site (YYYY-MM-DD). */
   date: string;
   category: string;
   title: string;
   summary: string;
+  /** Simple articles: plain paragraphs. Ignored when `blocks` is set. */
   paragraphs: string[];
+  blocks?: ArticleBlock[];
   related?: string;
+  /** Overrides for <title> / meta description when they differ from title / summary. */
+  seoTitle?: string;
+  seoDescription?: string;
+  image?: { src: string; srcSet?: string; ogSrc: string; width: number; height: number; alt: string; caption?: string };
 }
 
 export interface LocaleContent {

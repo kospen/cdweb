@@ -8,8 +8,7 @@ const expectedRoutes = [
   "/research/",
   "/capabilities/",
   "/news/",
-  "/news/research-ai-software/",
-  "/news/ai-governance-initiative/",
+  "/news/the-ai-act-file-practical-eu-ai-act-guide/",
   "/about/",
   "/contact/",
 ];

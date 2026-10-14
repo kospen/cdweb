@@ -97,8 +97,276 @@ export const en: LocaleContent = {
     title: "Signals from products, projects and research.",
     intro: "Company updates cover product development, project activity, collaborations, events and technology releases.",
     records: [
-      { slug: "research-ai-software", date: "2026-08-25", category: "Company update", title: "A broader architecture for research, AI and software", summary: "CREATIVE DESTRUCTION now presents products, projects, research and engineering as one connected technology system.", paragraphs: ["CREATIVE DESTRUCTION operates at the intersection of research, artificial intelligence, software engineering and product development.", "The updated company architecture gives each initiative its own place while keeping a shared path from investigation to deployable systems.", "Verified product, project and partnership records will be expanded as publication-ready information becomes available."], related: "Company" },
-      { slug: "ai-governance-initiative", date: "2026-08-25", category: "Initiative update", title: "AI Governance positioned within the wider technology portfolio", summary: "AI Governance remains a focused initiative and capability alongside software, products and R&D.", paragraphs: ["The AI Governance direction covers assessment, risk classification, documentation, governance evidence and lifecycle controls for AI systems.", "It is presented as one initiative within a broader technology portfolio rather than as the umbrella identity of CREATIVE DESTRUCTION.", "This structure allows governance expertise to connect with engineering and research when a technology initiative requires it."], related: "AI Governance" }
+      {
+        "slug": "the-ai-act-file-practical-eu-ai-act-guide",
+        "date": "2026-10-14",
+        "category": "Publication",
+        "title": "The AI Act File: A Practical Guide to the EU AI Act Is Coming Soon",
+        "summary": "A new practical handbook will help small businesses, solo entrepreneurs, online sellers, influencers, and digital content creators understand how the European Union's AI regulations apply to their everyday work.",
+        "paragraphs": [],
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Artificial intelligence is no longer a technology used exclusively by large corporations."
+          },
+          {
+            "type": "p",
+            "text": "Today, a single person running an online store can use AI to write product descriptions, generate marketing images, respond to customer inquiries, and automate administrative tasks."
+          },
+          {
+            "type": "p",
+            "text": "Influencers and content creators increasingly rely on AI-generated visuals, synthetic voices, video editing tools, and automated content production."
+          },
+          {
+            "type": "p",
+            "text": "Freelancers use AI assistants for research, communication, and business operations."
+          },
+          {
+            "type": "p",
+            "text": "But as AI becomes part of everyday business, an important question emerges:"
+          },
+          {
+            "type": "p",
+            "text": "**What does the EU AI Act actually require from people who work alone?**"
+          },
+          {
+            "type": "p",
+            "text": "A forthcoming English-language book, **The AI Act File**, published by Slow Humans Press, aims to make this question easier to answer."
+          },
+          {
+            "type": "p",
+            "text": "Rather than presenting the regulation as a purely legal document, the book takes a practical approach to understanding AI systems, identifying relevant obligations, and organizing the evidence and documentation that may be required."
+          },
+          {
+            "type": "h2",
+            "text": "AI Regulation Is Not Just for Large Technology Companies"
+          },
+          {
+            "type": "p",
+            "text": "One common misconception is that the EU AI Act concerns only major AI developers and technology corporations."
+          },
+          {
+            "type": "p",
+            "text": "In reality, certain obligations may also apply to smaller businesses and individual professionals, depending on how AI systems are used and what role the business plays."
+          },
+          {
+            "type": "p",
+            "text": "However, not every use of ChatGPT or another AI tool creates the same legal obligations."
+          },
+          {
+            "type": "p",
+            "text": "The EU AI Act — [Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng) — distinguishes between different roles, types of AI systems, risk categories, and specific applications."
+          },
+          {
+            "type": "p",
+            "text": "Understanding those distinctions is essential."
+          },
+          {
+            "type": "p",
+            "text": "**The AI Act File focuses on helping readers identify what matters for their actual activities rather than overwhelming them with requirements that may not apply.**"
+          },
+          {
+            "type": "h2",
+            "text": "Why Influencers and Content Creators Should Pay Attention"
+          },
+          {
+            "type": "p",
+            "text": "Artificial intelligence is transforming the creator economy."
+          },
+          {
+            "type": "p",
+            "text": "An influencer can now produce realistic images, generate video sequences, create synthetic voiceovers, or develop entire advertising campaigns using AI tools."
+          },
+          {
+            "type": "p",
+            "text": "These capabilities also raise important transparency questions."
+          },
+          {
+            "type": "p",
+            "text": "When should audiences be informed that content has been artificially generated or manipulated?"
+          },
+          {
+            "type": "p",
+            "text": "What is the difference between AI-assisted writing and realistic synthetic media?"
+          },
+          {
+            "type": "p",
+            "text": "How do the EU AI Act's transparency provisions apply to different types of published content?"
+          },
+          {
+            "type": "p",
+            "text": "The book examines transparency obligations, including those addressed in [Article 50 of the EU AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng), and explains why the nature of the content and the way it is presented matter."
+          },
+          {
+            "type": "p",
+            "text": "Importantly, **the EU AI Act does not impose an identical disclosure requirement on every piece of AI-assisted content**."
+          },
+          {
+            "type": "p",
+            "text": "For influencers, marketers, and digital creators, understanding these distinctions can help avoid unnecessary confusion while supporting responsible communication with audiences."
+          },
+          {
+            "type": "h2",
+            "text": "A Practical Resource for One-Person Online Businesses"
+          },
+          {
+            "type": "p",
+            "text": "Consider a small online store operated by a single entrepreneur."
+          },
+          {
+            "type": "p",
+            "text": "The owner manages the website, handles orders, communicates with customers, creates advertisements, and maintains social media accounts."
+          },
+          {
+            "type": "p",
+            "text": "AI tools can make all these tasks easier."
+          },
+          {
+            "type": "p",
+            "text": "But the owner may have no legal department, compliance officer, or dedicated IT team."
+          },
+          {
+            "type": "p",
+            "text": "This is precisely where an accessible practical guide can be valuable."
+          },
+          {
+            "type": "p",
+            "text": "The AI Act File encourages business owners to start with a straightforward assessment of their existing AI tools."
+          },
+          {
+            "type": "p",
+            "text": "For example:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Which AI tools am I actually using?",
+              "Do any of them communicate directly with my customers?",
+              "Am I publishing synthetic images, audio, or videos?",
+              "What personal or confidential information do I enter into AI systems?",
+              "Which activities are automated, and which decisions remain under human control?",
+              "What information or records should I maintain, where applicable?"
+            ]
+          },
+          {
+            "type": "p",
+            "text": "These questions provide a starting point for understanding the relationship between everyday AI use and regulatory responsibilities."
+          },
+          {
+            "type": "p",
+            "text": "The objective is not to create unnecessary paperwork."
+          },
+          {
+            "type": "p",
+            "text": "It is to help entrepreneurs distinguish relevant obligations from requirements that do not apply to their activities."
+          },
+          {
+            "type": "h2",
+            "text": "What Will Readers Learn?"
+          },
+          {
+            "type": "p",
+            "text": "The AI Act File covers practical aspects of AI governance and compliance, including:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Identifying AI systems used within a business.",
+              "Understanding the distinction between AI providers and deployers.",
+              "Recognizing potentially high-risk AI applications.",
+              "Understanding transparency and disclosure requirements.",
+              "Organizing meaningful human oversight.",
+              "Identifying relevant documentation and record-keeping obligations.",
+              "Understanding responsibilities relating to data and AI outputs.",
+              "Responding to changes in AI systems and potential incidents.",
+              "Keeping compliance information accurate as technology evolves."
+            ]
+          },
+          {
+            "type": "p",
+            "text": "The book emphasizes a fundamental principle:"
+          },
+          {
+            "type": "p",
+            "text": "**Effective AI governance begins with understanding what your AI systems actually do.**"
+          },
+          {
+            "type": "h2",
+            "text": "Designed for People Without a Compliance Department"
+          },
+          {
+            "type": "p",
+            "text": "For large organizations, regulatory compliance may involve legal specialists, risk managers, technical teams, and external consultants."
+          },
+          {
+            "type": "p",
+            "text": "For a freelancer, influencer, or sole trader, those resources may not be available."
+          },
+          {
+            "type": "p",
+            "text": "The AI Act File approaches AI governance from a practical business perspective."
+          },
+          {
+            "type": "p",
+            "text": "It helps readers organize an initial assessment, understand which questions to ask, and identify situations where specialist advice may be necessary."
+          },
+          {
+            "type": "p",
+            "text": "The book does not replace professional legal advice or guarantee regulatory compliance."
+          },
+          {
+            "type": "p",
+            "text": "Instead, it aims to make the EU AI Act more understandable and manageable for people who need to make informed decisions themselves."
+          },
+          {
+            "type": "p",
+            "text": "This makes the publication relevant not only to compliance professionals but also to:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Influencers and social media content creators.",
+              "Freelancers and independent consultants.",
+              "One-person e-commerce businesses.",
+              "Small online retailers.",
+              "Digital marketers and advertising professionals.",
+              "Microenterprises and small business owners.",
+              "Entrepreneurs introducing AI into everyday business operations."
+            ]
+          },
+          {
+            "type": "h2",
+            "text": "Coming Soon: The AI Act File"
+          },
+          {
+            "type": "p",
+            "text": "**The AI Act File** is being prepared as an English-language practical handbook for businesses and professionals navigating the European Union's AI regulatory framework."
+          },
+          {
+            "type": "p",
+            "text": "Its focus is straightforward: translating complex regulatory concepts into practical questions, decisions, and actions."
+          },
+          {
+            "type": "p",
+            "text": "For entrepreneurs working independently, the ability to understand what applies — and what does not — can be just as important as understanding the regulation itself."
+          },
+          {
+            "type": "p",
+            "text": "Further information about the publication, availability, and purchasing options will be announced in due course."
+          },
+          {
+            "type": "p",
+            "text": "**Follow Creative Destruction for updates on the upcoming release of The AI Act File.**"
+          },
+          {
+            "type": "p",
+            "text": "Related: [AI Governance at CREATIVE DESTRUCTION](/capabilities/) · [Official text of Regulation (EU) 2024/1689 on EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)"
+          }
+        ],
+        "related": "AI Governance",
+        "seoTitle": "The AI Act File – Practical EU AI Act Guide Coming Soon",
+        "seoDescription": "Discover The AI Act File, an upcoming practical EU AI Act guide for influencers, freelancers, online sellers, solo entrepreneurs and small businesses."
+      }
     ],
     empty: "Verified news records will appear here."
   },

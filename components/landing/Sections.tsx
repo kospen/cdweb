@@ -77,7 +77,7 @@ export function CapabilitiesSection({ locale, copy, full = false, intro }: { loc
 
 export function NewsSection({ locale, copy, full = false, intro }: { locale: Locale; copy: LocaleContent; full?: boolean; intro?: string }) {
   const records = full ? copy.news.records : copy.news.records.slice(0, 3);
-  return <section className="paper-section news-section" id="news" aria-labelledby="news-title"><div className="site-shell"><SectionHead eyebrow={copy.news.eyebrow} title={copy.news.title} intro={intro ?? copy.news.intro} light/><div className="news-index">{records.map((item) => <article key={item.slug}><div className="news-meta"><time dateTime={item.date}>{item.date}</time><span>{item.category}</span></div><div><h3>{item.title}</h3><p>{item.summary}</p><a href={localeHref(locale, `/news/${item.slug}`)}>{copy.common.read} →</a></div></article>)}</div></div></section>;
+  return <section className="paper-section news-section" id="news" aria-labelledby="news-title"><div className="site-shell"><SectionHead eyebrow={copy.news.eyebrow} title={copy.news.title} intro={intro ?? copy.news.intro} light/><div className="news-index">{records.length === 0 && <p className="news-empty">{copy.news.empty}</p>}{records.map((item) => <article key={item.slug}><div className="news-meta"><time dateTime={item.date}>{item.date}</time><span>{item.category}</span></div><div><h3>{item.title}</h3><p>{item.summary}</p><a href={localeHref(locale, `/news/${item.slug}`)}>{copy.common.read} →</a></div></article>)}</div></div></section>;
 }
 
 export function AboutSection({ locale, copy, full = false, intro }: { locale: Locale; copy: LocaleContent; full?: boolean; intro?: string }) {
