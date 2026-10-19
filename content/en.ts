@@ -352,7 +352,7 @@ export const en: LocaleContent = {
           },
           {
             "type": "p",
-            "text": "Further information about the publication, availability, and purchasing options will be announced in due course."
+            "text": "Details about the book and purchasing options are available on the [The AI Act File page at Slow Humans Press](https://slowhumans.com/books/ai-act-file/)."
           },
           {
             "type": "p",
@@ -360,7 +360,7 @@ export const en: LocaleContent = {
           },
           {
             "type": "p",
-            "text": "Related: [AI Governance at CREATIVE DESTRUCTION](/capabilities/) · [Official text of Regulation (EU) 2024/1689 on EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)"
+            "text": "Related: [The AI Act File at Slow Humans Press](https://slowhumans.com/books/ai-act-file/) · [AI Governance at CREATIVE DESTRUCTION](/capabilities/) · [Official text of Regulation (EU) 2024/1689 on EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)"
           }
         ],
         "related": "AI Governance",
