@@ -1,13 +1,15 @@
 @font-face {
   font-family: "Courier Prime";
-  src: url("/fonts/CourierPrime-Regular.ttf") format("truetype");
+  src: url("/fonts/CourierPrime-Regular.woff2") format("woff2"),
+       url("/fonts/CourierPrime-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "Courier Prime";
-  src: url("/fonts/CourierPrime-Bold.ttf") format("truetype");
+  src: url("/fonts/CourierPrime-Bold.woff2") format("woff2"),
+       url("/fonts/CourierPrime-Bold.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -36,7 +38,7 @@
   --cyan-strong: #39c5d5;
   --steel: #397ea3;
   --header-height: 4rem;
-  --shell: 100rem;
+  --shell: 92rem;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
 
@@ -66,12 +68,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Header */
 .site-header { position: sticky; z-index: 50; top: 0; height: var(--header-height); border-bottom: 1px solid rgba(169,178,183,.24); background: rgba(7,11,14,.94); backdrop-filter: blur(14px); }
 .site-header__inner { display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 2rem; }
-.brand-link { display: flex; align-items: center; gap: clamp(1rem, 4vw, 5rem); font-size: clamp(.76rem, .7rem + .25vw, .96rem); letter-spacing: .13em; text-transform: uppercase; white-space: nowrap; }
+.brand-link { display: flex; align-items: center; gap: clamp(1rem, 4vw, 5rem); font-size: clamp(.82rem, .76rem + .25vw, 1rem); font-weight: 700; letter-spacing: .13em; text-transform: uppercase; white-space: nowrap; }
 .brand-link i { color: var(--text-2); font-size: 1.7rem; font-style: normal; font-weight: 400; line-height: 1; }
 .brand-lockup { display: inline-flex; align-items: center; gap: .7rem; }
 .brand-lockup > span { white-space: nowrap; }
 .brand-logo { width: 2.85rem; height: auto; flex: 0 0 auto; color: var(--text); }
-.desktop-nav { display: none; align-items: center; gap: clamp(.65rem, 1.25vw, 1.6rem); font-size: clamp(.58rem, .48rem + .22vw, .75rem); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.desktop-nav { display: none; align-items: center; gap: clamp(.65rem, 1.25vw, 1.6rem); font-size: clamp(.7rem, .62rem + .2vw, .85rem); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 .desktop-nav a { position: relative; color: var(--text-2); transition: color .2s ease; }
 .desktop-nav a:hover { color: var(--text); }
 .desktop-nav a:not(.language-link)::after { position: absolute; right: 0; bottom: -.55rem; left: 0; height: 1px; transform: scaleX(0); transform-origin: left; background: var(--cyan); content: ""; transition: transform .25s var(--ease); }
@@ -162,7 +164,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .capability-layout .section-head > p:last-child { margin-top: 1.5rem; }
 .capability-index { border-color: var(--line-dark); }
 .capability-index article { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 1.2rem; padding-block: 1.6rem; border-bottom: 1px solid var(--line-dark); transition: padding-inline .3s var(--ease), background .3s ease; }
-.capability-index article:hover { padding-inline: .75rem; background: rgba(86,215,229,.025); }
+.capability-index article:hover { padding-inline: .75rem; background: rgba(86,215,229,.065); border-left: 2px solid var(--cyan); }
 .capability-index span { color: var(--cyan); font-size: .7rem; }
 .capability-index h3 { font-size: clamp(1.25rem, 1.8vw, 2rem); font-weight: 400; }
 .capability-index p { margin-top: .5rem; color: var(--text-2); font-size: .9rem; }
@@ -615,8 +617,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .about-grid { grid-template-columns: minmax(22rem,.75fr) minmax(0,1fr); gap: clamp(3rem,7vw,7rem); }
 .contact-section h2 { margin-top: 1.25rem; }
 .contact-intro { font-size: var(--body-size); line-height: 1.65; }
-.interior-hero { min-height: 27rem; padding-block: clamp(5rem,8vw,7rem) 3.5rem; }
-.interior-hero h1 { font-size: clamp(3rem,6vw,6rem); line-height: .94; }
+.interior-hero { min-height: 20rem; padding-block: clamp(2.5rem,4vw,4rem) 2.5rem; }
+.interior-hero h1 { font-size: clamp(2rem,3.5vw,3.25rem); line-height: .94; }
 
 /* Offscreen sections retain intrinsic layout without forcing viewport-height panels. */
 main > section:not(.reference-hero) { content-visibility: visible; }
@@ -721,8 +723,9 @@ main > section:not(.reference-hero) { content-visibility: visible; }
 .footer-grid nav a[aria-current="page"]::before,
 .mobile-nav a[aria-current="page"]::before {
   position: absolute;
-  width: .28rem;
-  height: .28rem;
+  width: .4rem;
+  height: .4rem;
+  border-radius: 50%;
   background: var(--cyan);
   content: "";
 }
@@ -907,4 +910,49 @@ main > section:not(.reference-hero) { content-visibility: visible; }
   .work-code i { flex: 1 1 auto; width: auto; max-width: 6rem; }
   .news-index article { grid-template-columns: 1fr; gap: 1rem; }
   .capability-index article { grid-template-columns: 2.5rem minmax(0, 1fr); }
+}
+
+/* Interior header — mirrors the homepage hero top bar exactly (desktop). */
+@media (min-width: 64.0625rem) {
+  .site-header { --header-height: calc(100vw * 941 / 1672 * .068); height: var(--header-height); border-bottom: 1px solid rgba(169,178,183,.26); background: #050b0f; backdrop-filter: none; }
+  .site-header .site-header__inner { display: grid; width: 100%; max-width: none; margin: 0; padding: 0 1.35vw 0 0; grid-template-columns: 43.05vw minmax(0, 1fr); gap: 0; }
+  .site-header .brand-link { height: 100%; gap: clamp(2.2rem, 4.6vw, 5rem); padding-inline: 2vw; color: #f3f2ed; font-size: inherit; font-weight: 400; letter-spacing: normal; }
+  .site-header .brand-lockup { gap: clamp(.7rem, 1vw, 1rem); }
+  .site-header .brand-logo { width: clamp(3rem, 3.8vw, 4rem); color: #f3f2ed; }
+  .site-header .brand-lockup > span { font-size: clamp(1rem, 1.8vw, 1.8rem); font-weight: 700; line-height: 1; letter-spacing: .085em; text-shadow: 0 0 18px rgba(242,240,234,.12); }
+  .site-header .brand-link i { font-size: clamp(1.65rem, 2.45vw, 2.75rem); }
+  .site-header .desktop-nav { display: grid; height: 100%; grid-template-columns: repeat(5, 1fr) 2.2rem 1.3fr; align-items: stretch; gap: 0; color: #e9e6de; font-size: clamp(.65rem, 1.02vw, 1.05rem); letter-spacing: .055em; }
+  .site-header .desktop-nav a, .site-header .desktop-nav a[aria-current="page"], .site-header .nav-contact { display: grid; min-width: 0; place-items: center; color: #e9e6de !important; transition: color .2s ease, background .2s ease; }
+  .site-header .desktop-nav a:hover, .site-header .desktop-nav a:focus-visible { background: rgba(86,215,229,.035); color: var(--cyan) !important; }
+  .site-header .desktop-nav a::before, .site-header .desktop-nav a::after { display: none; }
+  .site-header .nav-divider { align-self: center; justify-self: center; width: 1px; height: 48%; background: #d8d8d2; opacity: 1; }
+}
+
+/* Interior pages — tighter rhythm. Scoped to pages with .interior-hero, so the homepage is untouched. */
+.interior-hero { min-height: 0; padding-block: clamp(2rem, 3vw, 3rem) clamp(2rem, 2.5vw, 2.5rem); }
+.interior-hero h1 { margin-top: 1rem; }
+.interior-hero .site-shell > p:empty { display: none; }
+.interior-hero ~ section { padding-block: clamp(3rem, 5vw, 5rem); }
+.interior-hero ~ section .section-head > .kicker,
+.interior-hero ~ .contact-section .site-shell > .kicker { display: none; }
+.interior-hero ~ section .section-head { margin-bottom: clamp(1.75rem, 3vw, 2.5rem); }
+.interior-hero ~ section .section-head h2,
+.interior-hero ~ .contact-section h2 { margin-top: 0; font-size: clamp(1.8rem, 3vw, 3.25rem); }
+
+/* News article — readable measure, compact head, top link. */
+.article-head { padding-block: clamp(2.5rem, 4vw, 4rem); }
+.article-head > a:first-child:hover { color: var(--text); }
+.article-head .news-meta { flex-direction: row; flex-wrap: wrap; gap: .35rem 1.4rem; margin-top: 2rem; }
+.article-head h1 { margin-top: 1.1rem; }
+.article-head > p { max-width: 44rem; margin-top: 1.4rem; line-height: 1.7; }
+.article-head .article-link { margin-top: 2rem; }
+.article-page .paper-section { padding-block: clamp(3rem, 5vw, 5rem); }
+.article-body > div { max-width: 44rem; }
+.article-body > div p { font-size: 1.02rem; line-height: 1.8; }
+.article-prose > * + * { margin-top: 1.1rem; }
+.article-prose h2 { margin-top: clamp(2.5rem, 4vw, 3.5rem); padding-top: 1.4rem; border-top: 1px solid rgba(18,25,29,.18); font-size: clamp(1.35rem, 2vw, 1.85rem); }
+.article-prose h2 + * { margin-top: 1.1rem; }
+@media (min-width: 64.0625rem) {
+  .article-body { grid-template-columns: 12rem minmax(0, 1fr); gap: 3rem; }
+  .article-body aside { position: sticky; top: calc(var(--header-height) + 2rem); align-self: start; overflow-wrap: anywhere; line-height: 1.6; }
 }

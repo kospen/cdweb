@@ -40,6 +40,8 @@ export interface NewsRecord {
   paragraphs: string[];
   blocks?: ArticleBlock[];
   related?: string;
+  /** Primary external link shown at the top of the article, under the summary. */
+  link?: { label: string; href: string };
   /** Overrides for <title> / meta description when they differ from title / summary. */
   seoTitle?: string;
   seoDescription?: string;

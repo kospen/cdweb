@@ -101,8 +101,8 @@ export const en: LocaleContent = {
         "slug": "the-ai-act-file-practical-eu-ai-act-guide",
         "date": "2026-10-14",
         "category": "Publication",
-        "title": "The AI Act File: A Practical Guide to the EU AI Act Is Coming Soon",
-        "summary": "A new practical handbook will help small businesses, solo entrepreneurs, online sellers, influencers, and digital content creators understand how the European Union's AI regulations apply to their everyday work.",
+        "title": "The AI Act File: A Practical Guide to the EU AI Act Is Now Published",
+        "summary": "A new practical handbook helps small businesses, solo entrepreneurs, online sellers, influencers, and digital content creators understand how the European Union's AI regulations apply to their everyday work.",
         "paragraphs": [],
         "blocks": [
           {
@@ -131,7 +131,7 @@ export const en: LocaleContent = {
           },
           {
             "type": "p",
-            "text": "A forthcoming English-language book, **The AI Act File**, published by Slow Humans Press, aims to make this question easier to answer."
+            "text": "**The AI Act File**, an English-language book published by Slow Humans Press, aims to make this question easier to answer."
           },
           {
             "type": "p",
@@ -336,11 +336,11 @@ export const en: LocaleContent = {
           },
           {
             "type": "h2",
-            "text": "Coming Soon: The AI Act File"
+            "text": "Now Available: The AI Act File"
           },
           {
             "type": "p",
-            "text": "**The AI Act File** is being prepared as an English-language practical handbook for businesses and professionals navigating the European Union's AI regulatory framework."
+            "text": "**The AI Act File** is an English-language practical handbook for businesses and professionals navigating the European Union's AI regulatory framework."
           },
           {
             "type": "p",
@@ -352,11 +352,7 @@ export const en: LocaleContent = {
           },
           {
             "type": "p",
-            "text": "Details about the book and purchasing options are available on the [The AI Act File page at Slow Humans Press](https://slowhumans.com/books/ai-act-file/)."
-          },
-          {
-            "type": "p",
-            "text": "**Follow Creative Destruction for updates on the upcoming release of The AI Act File.**"
+            "text": "The book is available now at [Slow Humans Press](https://slowhumans.com/)."
           },
           {
             "type": "p",
@@ -364,8 +360,9 @@ export const en: LocaleContent = {
           }
         ],
         "related": "AI Governance",
-        "seoTitle": "The AI Act File – Practical EU AI Act Guide Coming Soon",
-        "seoDescription": "Discover The AI Act File, an upcoming practical EU AI Act guide for influencers, freelancers, online sellers, solo entrepreneurs and small businesses."
+        "link": { "label": "The AI Act File at Slow Humans Press", "href": "https://slowhumans.com/books/ai-act-file/" },
+        "seoTitle": "The AI Act File – Practical EU AI Act Guide, Now Published",
+        "seoDescription": "The AI Act File is a published practical EU AI Act guide for influencers, freelancers, online sellers, solo entrepreneurs and small businesses. Available now at Slow Humans Press."
       }
     ],
     empty: "Verified news records will appear here."
